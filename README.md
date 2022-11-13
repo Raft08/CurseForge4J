@@ -10,4 +10,4 @@
 
 <h1 align="center">Setup</h1>
 
-<p align="center">>For the moment you will need to build the jar yourself</p>
+<p align="center">For the moment you will need to build the jar yourself</p>
