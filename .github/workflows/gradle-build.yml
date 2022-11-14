@@ -4,6 +4,8 @@
 # documentation.
 # This workflow will build a package using Gradle and then publish it to GitHub packages when a release is created
 # For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#Publishing-using-gradle
+
+# Workflow file stolen from https://github.com/FabricMC/fabric-example-mod , Thank you Fabric. I'm to stupid to make it myself
 name: Build
 on: [pull_request, push]
 
@@ -17,20 +19,20 @@ jobs:
         os: [ubuntu-20.04, windows-2022]
     runs-on: ${{ matrix.os }}
     steps:
-      - name: checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v2
-      - name: validate gradle wrapper
+      - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
-      - name: setup jdk ${{ matrix.java }}
+      - name: Setup JDK ${{ matrix.java }}
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
-      - name: make gradle wrapper executable
+      - name: Make Gradle wrapper executable
         if: ${{ runner.os != 'Windows' }}
         run: chmod +x ./gradlew
-      - name: build
+      - name: Build
         run: ./gradlew build
-      - name: capture build artifacts
+      - name: Capture build Artifacts
         if: ${{ runner.os == 'Linux' && matrix.java == '17' }} # Only upload artifacts built from latest java on one OS
         uses: actions/upload-artifact@v2
         with:
