@@ -14,7 +14,7 @@ import java.net.URL;
 
 public class CurseJavaTest {
     public static void main(String[] args) {
-        CurseForgeApi api = new CurseForgeApi("$2a$10$72cJiy3p7SzQ5HwqdROTO.xr1h3MdE0/49irxdoP7MrfOoS72Ucqu");
+        CurseForgeApi api = new CurseForgeApi("API_KEY");
         SearchModResponse modResponse = api.searchMod(432, "1.18.2", ModLoaderType.FORGE, ModsSearchSortField.FEATURED, 50, 0, "Mekanism");
         GamesResponse gamesResponse = api.getGames();
         CategoriesResponse categoriesResponse = api.getCategories(432);
